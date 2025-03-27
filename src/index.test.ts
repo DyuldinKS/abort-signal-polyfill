@@ -250,3 +250,13 @@ describe('any + timeout integration', () => {
     expect(spy).toHaveBeenCalledTimes(1); // Only one abort event should trigger
   });
 });
+
+describe('exports', () => {
+  test('should export the required functions', () => {
+    expect(typeof abortSignalAny).toBe('function');
+    expect(typeof abortSignalTimeout).toBe('function');
+    expect(typeof abortSignalAbort).toBe('function');
+    expect(typeof installAbortSignalPolyfill).toBe('function');
+    expect(typeof uninstallAbortSignalPolyfill).toBe('function');
+  });
+});

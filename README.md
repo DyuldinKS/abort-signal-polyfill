@@ -1,12 +1,12 @@
 # abort-signal-polyfill
 
-A lightweight polyfill for `AbortSignal.any()`, `AbortSignal.timeout()`, and `AbortSignal.abort()` methods.
+A lightweight polyfill for `AbortSignal.any`, `AbortSignal.timeout`, and `AbortSignal.abort` methods.
 
 ## Features
 
-- `AbortSignal.any()`: Creates an AbortSignal that will be aborted when any of the given signals is aborted
-- `AbortSignal.timeout()`: Creates an AbortSignal that will be aborted after the specified timeout
-- `AbortSignal.abort()`: Creates an AbortSignal that is already aborted with an optional reason
+- [`AbortSignal.any(signals: AbortSignal[])`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal/any): Creates an AbortSignal that will be aborted when any of the given signals is aborted
+- [`AbortSignal.timeout(timeoutMs: number)`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal/timeout): Creates an AbortSignal that will be aborted after the specified timeout
+- [`AbortSignal.abort(reason?: any)`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal/abort): Creates an AbortSignal that is already aborted with an optional reason
 
 ## Installation
 
@@ -17,14 +17,14 @@ npm install abort-signal-polyfill
 ## Usage
 
 ```typescript
-import 'abort-signal-polyfill';
-// or
-import { installAbortSignalPolyfill } from 'abort-signal-polyfill';
+import {
+  installAbortSignalPolyfill,
+  uninstallAbortSignalPolyfill,
+} from 'abort-signal-polyfill';
 
 // Install the polyfill
 installAbortSignalPolyfill();
 
-// Example using AbortSignal.any() and AbortSignal.timeout()
 const timeoutSignal = AbortSignal.timeout(5000); // 5 second timeout
 const controller = new AbortController();
 
@@ -37,21 +37,24 @@ try {
   // Handle successful response
 } catch (err) {
   if (err.name === 'TimeoutError') {
-    // Handle abort case - either timeout occurred or abort() was called
-    console.log('The request was timeout out');
+    // Handle timeout case
+    console.error('The request timed out');
   } else {
     // Handle other errors
     console.error('Request failed:', err);
   }
 }
+
+// Uninstall polyfills if needed
+uninstallAbortSignalPolyfill();
 ```
 
 ## TypeScript Support
 
-```js
+```typescript
 import type { AbortSignalPolyfill } from 'abort-signal-polyfill';
 
-// old TypeScript may not have proper types for AbortSignal.
+// For older TypeScript versions that may not have proper types for AbortSignal
 (AbortSignal as AbortSignalPolyfill).timeout(2000);
 ```
 
