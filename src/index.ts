@@ -17,7 +17,7 @@ type StaticMethodName = 'any' | 'timeout' | 'abort';
 
 const maybeInstallStaticMethod = <Args extends unknown[], Ret>(
   name: StaticMethodName,
-  method: (...args: Args) => Ret
+  method: (...args: Args) => Ret,
 ) => {
   if (!(name in AbortSignal)) {
     Object.defineProperty(AbortSignal, name, {
@@ -30,7 +30,7 @@ const maybeInstallStaticMethod = <Args extends unknown[], Ret>(
 
 const maybeUninstallStaticMethod = <Args extends unknown[], Ret>(
   name: StaticMethodName,
-  method: (...args: Args) => Ret
+  method: (...args: Args) => Ret,
 ) => {
   if (name in AbortSignal && (AbortSignal[name] as unknown) === method) {
     delete AbortSignal[name];
@@ -43,7 +43,7 @@ const maybeUninstallStaticMethod = <Args extends unknown[], Ret>(
 export function installAbortSignalPolyfill(): void {
   if (typeof AbortSignal === 'undefined') {
     console.warn(
-      'AbortSignal is not defined in this environment. The polyfill will not be installed.'
+      'AbortSignal is not defined in this environment. The polyfill will not be installed.',
     );
     return;
   }

@@ -8,7 +8,7 @@ export function abortSignalTimeout(ms: number): AbortSignal {
 
   setTimeout(() => {
     controller.abort(
-      new DOMException(`signal timed out after ${ms} ms`, 'TimeoutError')
+      new DOMException(`signal timed out after ${ms} ms`, 'TimeoutError'),
     );
   }, ms);
 
