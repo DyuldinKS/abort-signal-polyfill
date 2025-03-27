@@ -1,0 +1,18 @@
+# Build output
+dist
+lib
+coverage
+
+# Package manager files
+node_modules
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Config files
+.github
+.vscode
+
+# Misc
+.DS_Store
+*.log 
