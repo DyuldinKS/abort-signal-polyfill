@@ -7,11 +7,10 @@
  * - AbortSignal.abort() https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal/abort
  */
 
-import './types';
-import { abortSignalAny } from './staticMethods/any';
-import { abortSignalTimeout } from './staticMethods/timeout';
-import { abortSignalAbort } from './staticMethods/abort';
-import type { AbortSignalPolyfill } from './types';
+import { abortSignalAny } from './staticMethods/any.js';
+import { abortSignalTimeout } from './staticMethods/timeout.js';
+import { abortSignalAbort } from './staticMethods/abort.js';
+export type { AbortSignalPolyfill } from './types.js';
 
 type StaticMethodName = 'any' | 'timeout' | 'abort';
 
@@ -68,4 +67,3 @@ export function uninstallAbortSignalPolyfill(): void {
 
 // Export the implementations for users who want to manually install
 export { abortSignalAny, abortSignalTimeout, abortSignalAbort };
-export type { AbortSignalPolyfill };
