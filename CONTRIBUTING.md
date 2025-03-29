@@ -10,7 +10,7 @@ Thank you for your interest in contributing to the AbortSignal polyfill! This do
 
 ## Building the Project
 
--   `npm run build` - Builds CommonJS, ESM and type declarations
+- `npm run build` - Builds CommonJS, ESM and type declarations
 
 ## Development Workflow
 
@@ -25,11 +25,11 @@ Thank you for your interest in contributing to the AbortSignal polyfill! This do
 
 ## Pull Request Guidelines
 
--   Include tests for any new functionality
--   Update documentation if needed
--   Follow the existing code style
--   Keep pull requests focused on a single topic
--   Write a clear description of what your PR does
+- Include tests for any new functionality
+- Update documentation if needed
+- Follow the existing code style
+- Keep pull requests focused on a single topic
+- Write a clear description of what your PR does
 
 ## Release Process
 

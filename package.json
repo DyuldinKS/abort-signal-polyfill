@@ -29,7 +29,8 @@
     "test": "jest --verbose",
     "lint": "eslint src --ext .ts",
     "prepublishOnly": "npm run build",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md,html,css,yaml,yml,json}\""
   },
   "keywords": [
     "abort",

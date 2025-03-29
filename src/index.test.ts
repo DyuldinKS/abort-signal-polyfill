@@ -45,7 +45,7 @@ describe('installAbortSignalPolyfill', () => {
       installAbortSignalPolyfill();
 
       expect(warnSpy).toHaveBeenCalledWith(
-        'AbortSignal is not defined in this environment. The polyfill will not be installed.'
+        'AbortSignal is not defined in this environment. The polyfill will not be installed.',
       );
     } finally {
       // Restore original

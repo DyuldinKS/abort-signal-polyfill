@@ -32,7 +32,7 @@ describe('abortSignalAny', () => {
 
   const shouldAbortIfSignalNIsInitiallyAborted = (
     signalCount: number,
-    abortedSignalIndex: number
+    abortedSignalIndex: number,
   ) => {
     const testName = `should be aborted if signal${
       abortedSignalIndex + 1
@@ -40,7 +40,7 @@ describe('abortSignalAny', () => {
 
     test(testName, () => {
       const controllers = makeNAbortController(signalCount);
-      const signals = controllers.map(c => c.signal);
+      const signals = controllers.map((c) => c.signal);
 
       const reason = new Error(`Signal ${abortedSignalIndex + 1} aborted`);
       controllers[abortedSignalIndex].abort(reason);
@@ -64,17 +64,17 @@ describe('abortSignalAny', () => {
 
   const testShouldAbortWhenSignalNAborts = (
     signalCount: number,
-    abortedSignalIndex: number
+    abortedSignalIndex: number,
   ) => {
     const testName = `should abort when signal ${abortedSignalIndex} aborts`;
 
     test(testName, () => {
       const controllers = Array.from(
         { length: signalCount },
-        () => new AbortController()
+        () => new AbortController(),
       );
 
-      const signals = controllers.map(controller => controller.signal);
+      const signals = controllers.map((controller) => controller.signal);
 
       const resSignal = abortSignalAny(signals);
       const spy = jest.fn();
